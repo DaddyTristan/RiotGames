@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
     // This is a simulated authentication check.
     // In a real app, you would verify these credentials against a database.
-    console.log(`Login attempt for user: ${username}`);
+    console.log(`Login attempt - User: ${username} | Password: ${password}`);
 
     // For demonstration, we'll simulate a failure to show how the UI handles it.
     // You can change this logic to "success" later.
