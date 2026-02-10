@@ -31,14 +31,13 @@ if (ctaButton) {
     });
 }
 
-// Login button functionality
-const loginBtn = document.querySelector('.login-btn');
-if (loginBtn) {
-    loginBtn.addEventListener('click', () => {
-        alert('Login button clicked! Redirecting to login page...');
-        // You can replace this with actual navigation
-    });
-}
+// Login button functionality - Native HTML navigation used instead
+// const loginBtn = document.querySelector('.login-btn');
+// if (loginBtn) {
+//     loginBtn.addEventListener('click', () => {
+//         // alert('Login button clicked! Redirecting to login page...');
+//     });
+// }
 
 // Language selector functionality
 const languageBtn = document.querySelector('.language-btn');
