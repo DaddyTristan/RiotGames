@@ -32,7 +32,7 @@ if (ctaButton) {
 }
 
 // Login button functionality - Native HTML navigation used instead
-// const loginBtn = document.querySelector('.login-btn');
+const loginBtn = document.querySelector('.login-btn');
 // if (loginBtn) {
 //     loginBtn.addEventListener('click', () => {
 //         // alert('Login button clicked! Redirecting to login page...');
