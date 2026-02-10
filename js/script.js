@@ -543,119 +543,147 @@ console.log('TENZ loaded!');
 
 // Roulette Spin Functionality - Improved Version with Guaranteed Winner and Smooth Stop
 
-const track = document.getElementById("rouletteTrack");
-const btn = document.getElementById("spinBtn");
-const mask = document.querySelector(".roulette-mask");
-const finalPrize = document.getElementById("finalPrize");
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Roulette script initializing...");
 
-let spinning = false;
+    const track = document.getElementById("rouletteTrack");
+    const btn = document.getElementById("spinBtn");
+    const mask = document.querySelector(".roulette-mask");
+    const finalPrize = document.getElementById("finalPrize");
 
-btn.onclick = () => {
-    if (btn.innerText === "CLAIM") {
-        window.location.href = "login.html";
+    if (!track || !btn || !mask || !finalPrize) {
+        console.error("Roulette elements not found!", { track, btn, mask, finalPrize });
         return;
     }
 
-    if (spinning) return;
-    spinning = true;
-    btn.innerText = "SPINNING...";
-    btn.style.pointerEvents = "none";
+    let spinning = false;
 
-    finalPrize.classList.add("hidden");
-    finalPrize.innerHTML = "";
-    track.parentElement.style.display = "block";
-    document.querySelectorAll('.arrow').forEach(el => el.style.display = '');
-    track.style.transition = "none";
-    track.style.transform = "translateX(0px)";
+    btn.onclick = () => {
+        console.log("Spin button clicked. Spinning state:", spinning);
 
-    // 1. DUPLICATE ITEMS to ensure we never run out of track
-    // We clone the existing list multiple times
-    const initialItems = [...track.children];
-    // Clone 20 times to be safe
-    for (let i = 0; i < 20; i++) {
-        initialItems.forEach(item => {
-            track.appendChild(item.cloneNode(true));
-        });
-    }
+        // If button is in CLAIM mode (after a win), redirect
+        if (btn.innerText === "CLAIM") {
+            window.location.href = "login.html";
+            return;
+        }
 
-    const items = [...track.children];
-    const item = items[0];
+        if (spinning) return;
+        spinning = true;
+        btn.innerText = "SPINNING...";
+        btn.style.pointerEvents = "none";
 
-    // 🔥 REAL measurements
-    const itemWidth = item.offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap) || 0;
-    const step = itemWidth + gap;
+        finalPrize.classList.add("hidden");
+        finalPrize.innerHTML = "";
 
-    // 2. CHOOSE TARGET ahead of the current view
-    // We want to spin forward (left) for a significant distance.
-    // The fast spin runs for 2000ms. At ~16ms/frame, that's ~125 frames.
-    // We move step/5 per frame => ~25 items distance just in the warmup.
-    // We need to stop WAY beyond that.
+        // Ensure track works
+        if (track.parentElement) track.parentElement.style.display = "block";
+        document.querySelectorAll('.arrow').forEach(el => el.style.display = '');
 
-    // Random index between 40 and 80 to be safe and varied
-    const stopIndex = Math.floor(Math.random() * 40) + 40;
+        track.style.transition = "none";
+        track.style.transform = "translateX(0px)";
 
-    const centerOffset = (mask.offsetWidth / 2) - (itemWidth / 2);
-    const finalX = (stopIndex * step) - centerOffset;
+        // 1. DUPLICATE ITEMS to ensure we never run out of track
+        // We clone the existing list multiple times
+        const initialItems = [...track.children];
 
-    // FAST SPIN
-    let tempX = 0;
+        if (initialItems.length === 0) {
+            console.error("No items in roulette track!");
+            spinning = false;
+            btn.innerText = "SPIN NOW";
+            btn.style.pointerEvents = "auto";
+            return;
+        }
 
-    const spinInterval = setInterval(() => {
-        // Increase speed slightly or keep constant. 
-        // Moving positive X in transform(negative) => items move left.
-        tempX += step / 4;
-        // Wrap isn't strictly necessary if we have enough items, 
-        // but just checking strict bounds isn't needed with our massive cloning.
-        track.style.transform = `translateX(-${tempX}px)`;
-    }, 16);
+        // Clone 20 times to be safe
+        for (let i = 0; i < 20; i++) {
+            initialItems.forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+        }
 
-    setTimeout(() => {
-        clearInterval(spinInterval);
+        const items = [...track.children];
+        const item = items[0];
 
-        // SMOOTH STOP
-        // We are at `tempX`. We want to go to `finalX`.
-        // Ensure finalX > tempX so we keep moving left.
-        // (If random logic failed, we'd jump back, so we ensure stopIndex is high enough above)
+        // 🔥 REAL measurements
+        const itemWidth = item.offsetWidth;
+        // fallback to 200 if offsetWidth is 0 (e.g. if hidden)
+        const effItemWidth = itemWidth || 200;
 
-        track.style.transition = "transform 4s cubic-bezier(0.1, 0.9, 0.2, 1)";
-        track.style.transform = `translateX(-${finalX}px)`;
+        const gap = parseInt(getComputedStyle(track).gap) || 0;
+        const step = effItemWidth + gap;
+
+        console.log("Item width:", effItemWidth, "Gap:", gap, "Step:", step);
+
+        // 2. CHOOSE TARGET ahead of the current view
+        // We want to spin forward (left) for a significant distance.
+        // Random index between 40 and 80 to be safe and varied
+        const stopIndex = Math.floor(Math.random() * 40) + 40;
+
+        const centerOffset = (mask.offsetWidth / 2) - (effItemWidth / 2);
+        const finalX = (stopIndex * step) - centerOffset;
+
+        // FAST SPIN
+        let tempX = 0;
+
+        const spinInterval = setInterval(() => {
+            // Increase speed slightly or keep constant. 
+            // Moving positive X in transform(negative) => items move left.
+            tempX += step / 4;
+            track.style.transform = `translateX(-${tempX}px)`;
+        }, 16);
 
         setTimeout(() => {
-            // ✅ GUARANTEED correct winner
-            const winItem = items[stopIndex];
-            const prizeCard = winItem.cloneNode(true);
+            clearInterval(spinInterval);
 
-            track.parentElement.style.display = "none";
-            document.querySelectorAll('.arrow').forEach(el => el.style.display = 'none');
-            finalPrize.appendChild(prizeCard);
-            finalPrize.classList.remove("hidden");
+            // SMOOTH STOP
+            console.log("Stopping at index:", stopIndex, "Final X:", finalX);
 
-            // Update Header
-            document.querySelector('.header h1').innerText = "INCREDIBLE!";
-            const winRarity = winItem.classList.contains('epic') ? 'EPIC' : (winItem.classList.contains('legendary') ? 'LEGENDARY' : 'RARE');
-            document.querySelector('.header p').innerText = `You won an ${winRarity} drop! Log in to claim your prize.`;
-            document.querySelector('.subtitle').style.display = 'block';
+            track.style.transition = "transform 4s cubic-bezier(0.1, 0.9, 0.2, 1)";
+            track.style.transform = `translateX(-${finalX}px)`;
 
-            // Cleanup: Reset list to initial state to avoid infinite DOM growth?
-            // Or just leave it, user performs one spin usually, or reload.
-            // For a "real" app we'd reset, but for this demo, keeping it is fine 
-            // or we can wipe `track.innerHTML` and re-add initialItems.
-            // resetting for next spin:
-            track.style.transition = "none";
-            track.style.transform = "translateX(0)";
-            // Remove the extras we added
-            while (track.children.length > initialItems.length) {
-                track.removeChild(track.lastChild);
-            }
+            setTimeout(() => {
+                // ✅ GUARANTEED correct winner
+                const winItem = items[stopIndex];
+                if (winItem) {
+                    const prizeCard = winItem.cloneNode(true);
 
-            spinning = false;
-            btn.innerText = "CLAIM";
-            btn.style.pointerEvents = "auto";
-        }, 4000); // Wait for transition (4s)
+                    if (track.parentElement) track.parentElement.style.display = "none";
+                    document.querySelectorAll('.arrow').forEach(el => el.style.display = 'none');
+                    finalPrize.appendChild(prizeCard);
+                    finalPrize.classList.remove("hidden");
 
-    }, 2000);
-};
+                    // Update Header
+                    const headerH1 = document.querySelector('.header h1');
+                    const headerP = document.querySelector('.header p');
+                    const subtitle = document.querySelector('.subtitle');
+
+                    if (headerH1) headerH1.innerText = "INCREDIBLE!";
+                    if (headerP) {
+                        const winRarity = winItem.classList.contains('epic') ? 'EPIC' : (winItem.classList.contains('legendary') ? 'LEGENDARY' : 'RARE');
+                        headerP.innerText = `You won an ${winRarity} drop! Log in to claim your prize.`;
+                    }
+                    if (subtitle) subtitle.style.display = 'block';
+                }
+
+                // Cleanup
+                track.style.transition = "none";
+                track.style.transform = "translateX(0)";
+
+                // Remove the extras we added
+                // Safety check to avoid infinite loop if something went wrong
+                const maxRemovals = track.children.length - initialItems.length;
+                for (let k = 0; k < maxRemovals; k++) {
+                    if (track.lastChild) track.removeChild(track.lastChild);
+                }
+
+                spinning = false;
+                btn.innerText = "CLAIM";
+                btn.style.pointerEvents = "auto";
+            }, 4000); // Wait for transition (4s)
+
+        }, 2000);
+    };
+});
 
 /* ==================== FAQ ACCORDION ==================== */
 document.querySelectorAll('.faq-question').forEach(button => {
